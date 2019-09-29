@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - dcoker
+
+before_install:
+  - docker build -t rohit2627/docker-react-travis-aws -f Dockerfile.dev . 
+
+script:
+   - docker run rohit2627/docker-react-travis-aws npm run test -- --coverage
